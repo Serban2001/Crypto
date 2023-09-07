@@ -33,7 +33,7 @@ python3 app.py
 
 ## How to use the app
 
-**Selectarea algoritmului**
+**Algorithm selection**
 
 When the application starts, you will be prompted to select the encryption algorithm (AES/RSA/DES). Enter the algorithm name and press Enter.
 
