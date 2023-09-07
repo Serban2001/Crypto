@@ -45,6 +45,8 @@ Follow the instructions displayed in the console to enter the encryption text an
 
 To exit the application, enter "quit" when the algorithm is prompted.
 
+https://github.com/Serban2001/Crypto/assets/127775479/2586ee59-30e0-4e15-9060-d2265838413d
+
 ## Project structure
 
 **main.py:** The main script containing the user interface and function calls for the encryption algorithms.
