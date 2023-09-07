@@ -3,7 +3,7 @@ from des import DESCipher
 from rsa import RSACipher
 
 def main_aes():
-    plaintext = input("Introduceti textul pentru criptare AES: ").encode()
+    plaintext = input("Enter text for AES encryption: ").encode()
 
     aes_cipher = AESCipher("aes_key.bin")
     aes_cipher.generate_key()
@@ -11,14 +11,14 @@ def main_aes():
 
     aes_cipher.load_key_from_file()
     ciphertext = aes_cipher.encrypt(plaintext)
-    print("Textul criptat AES:", ciphertext)
+    print("AES encrypted text: ", ciphertext)
 
     aes_cipher.load_key_from_file()
     decrypted_text = aes_cipher.decrypt(ciphertext)
-    print("Textul decriptat AES:", decrypted_text.decode())
+    print("AES decrypted text: ", decrypted_text.decode())
 
 def main_rsa():
-    plaintext = input("Introduceti textul pentru criptare RSA: ").encode()
+    plaintext = input("Enter text for RSA encryption: ").encode()
 
     rsa_cipher = RSACipher("private_key.pem", "public_key.pem")
     rsa_cipher.generate_key_pair()
@@ -27,14 +27,14 @@ def main_rsa():
 
     rsa_cipher.load_public_key_from_file()
     ciphertext = rsa_cipher.encrypt(plaintext)
-    print("Textul criptat RSA:", ciphertext)
+    print("RSA encrypted text: ", ciphertext)
 
     rsa_cipher.load_private_key_from_file()
     decrypted_text = rsa_cipher.decrypt(ciphertext)
-    print("Textul decriptat RSA:", decrypted_text.decode())
+    print("RSA decrypted text: ", decrypted_text.decode())
 
 def main_des():
-    plaintext = input("Introduceti textul pentru criptare DES: ").encode()
+    plaintext = input("Enter text for DES encryption: ").encode()
 
     des_cipher = DESCipher("des_key.bin")
     des_cipher.generate_key()
@@ -42,21 +42,24 @@ def main_des():
 
     des_cipher.load_key_from_file()
     ciphertext = des_cipher.encrypt(plaintext)
-    print("Textul criptat DES:", ciphertext)
+    print("DES encrypted text: ", ciphertext)
 
     des_cipher.load_key_from_file()
     decrypted_text = des_cipher.decrypt(ciphertext)
-    print("Textul decriptat DES:", decrypted_text.decode())
+    print("DES decrypted text: ", decrypted_text.decode())
 
 
 if __name__ == "__main__":
-    algorithm = input("Selectati algoritmul (AES/RSA/DES): ")
+    while True:
+        algorithm = input("Select the algorithm (AES/RSA/DES), or 'quit' to exit: ")
 
-    if algorithm.lower() == "aes":
-        main_aes()
-    elif algorithm.lower() == "rsa":
-        main_rsa()
-    elif algorithm.lower() == "des":
-        main_des()
-    else:
-        print("Algoritmul selectat nu este valid.")
+        if algorithm.lower() == "aes":
+            main_aes()
+        elif algorithm.lower() == "rsa":
+            main_rsa()
+        elif algorithm.lower() == "des":
+            main_des()
+        elif algorithm.lower() == "quit":
+            break
+        else:
+            print("The selected algorithm is not valid. Please try again.")
